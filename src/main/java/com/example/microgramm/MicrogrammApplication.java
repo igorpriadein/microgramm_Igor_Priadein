@@ -1,13 +1,13 @@
-package com.example.micrigramm;
+package com.example.microgramm;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MicrigrammApplication {
+public class MicrogrammApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(MicrigrammApplication.class, args);
+        SpringApplication.run(MicrogrammApplication.class, args);
     }
 
 }

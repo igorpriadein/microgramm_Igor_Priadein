@@ -1,4 +1,4 @@
-package com.example.micrigramm.entity;
+package com.example.microgramm.entity;
 
 import lombok.*;
 
@@ -6,24 +6,22 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "like_table")
+@Table(name = "publication")
 @Getter
 @Setter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Like {
+public class Publication {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "like_owner_id")
-    private User likeOwner;
+    private String picture;
 
     @ManyToOne
-    @JoinColumn(name = "publication_id")
-    private Publication publication;
+    @JoinColumn(name = "author_id")
+    private User author;
 
     @Column(name = "date_added")
     private LocalDateTime dateAdded;

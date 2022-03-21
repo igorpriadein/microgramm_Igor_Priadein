@@ -1,4 +1,4 @@
-package com.example.micrigramm.service;
+package com.example.microgramm.service;
 
 import org.springframework.stereotype.Service;
 

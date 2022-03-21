@@ -1,4 +1,4 @@
-package com.example.micrigramm.entity;
+package com.example.microgramm.entity;
 
 import lombok.*;
 
