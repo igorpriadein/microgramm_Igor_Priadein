@@ -5,12 +5,16 @@ import com.example.microgramm.entity.User;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Repository
 public interface PublicationRepository extends CrudRepository<Publication, String> {
     List<Publication> findPublicationsByAuthor(User author);
 
-    List<Publication> findPublicationsByAuthorIsLike
+    List<Publication> findPublicationsByAuthorWhereSubscriberIdEquals(User author, Integer id);
+    // найти публицкации автора, у которого в подписках(fk) есть мы
+
+    List<Publication> findPublicationsByDateAddedEquals(LocalDateTime dateAdded);
 
 }

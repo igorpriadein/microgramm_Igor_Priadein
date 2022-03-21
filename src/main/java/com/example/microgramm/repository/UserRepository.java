@@ -21,4 +21,8 @@ public interface UserRepository extends CrudRepository<User, String> {
 
     List<User> findUsersByCountPublicationsEquals(Integer count);
 
+    List<User> findUsersByNameContains(String text);
+
+    List<User> findUsersByCountSubscribersGreaterThan(Integer count);
+
 }

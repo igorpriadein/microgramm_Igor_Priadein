@@ -16,5 +16,7 @@ public interface SubscribeRepository extends CrudRepository<Subscribe, String> {
 
     List<Subscribe> findSubscribesBySubscriberIs(User subscriber);
 
+    List<Subscribe> findSubscribesByDateAddedGreaterThan(LocalDateTime dateTime);
+
 
 }
