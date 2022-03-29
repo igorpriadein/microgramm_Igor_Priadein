@@ -2,6 +2,7 @@ package com.example.microgramm.service;
 
 import com.example.microgramm.dto.CommentDTO;
 import com.example.microgramm.dto.PublicationDTO;
+import com.example.microgramm.dto.UserDTO;
 import com.example.microgramm.entity.Comment;
 import com.example.microgramm.entity.Publication;
 import com.example.microgramm.entity.User;
@@ -18,7 +19,7 @@ import java.util.Optional;
 public class CommentService {
     private final CommentRepository commentRepository;
 
-    public Optional<Comment> addComment(User user, String text, Publication publication)
+    public Optional<Comment> Comment(User user, String text, Publication publication)
 
     {
 
@@ -26,6 +27,17 @@ public class CommentService {
 
         return Optional.empty();
 
+    }
+
+    public CommentDTO addComment(CommentDTO commentDTO, PublicationDTO publicationDTO){
+        var comment = Comment.builder()
+                .id(commentDTO.getId())
+                .commentText(commentDTO.getCommentText())
+                .author(User.builder().id(commentDTO.getAuthorId()).build())
+                .publication(Publication.builder().id(publicationDTO.getAuthorId()).build())
+                .build();
+        commentRepository.save(comment);
+        return CommentDTO.from(comment);
     }
 
     public Slice<CommentDTO> findCommentsByUserId(String id, Pageable pageable){
