@@ -4,7 +4,6 @@ package com.example.microgramm.dto;
 import com.example.microgramm.entity.User;
 import lombok.*;
 
-import javax.persistence.Column;
 
 @Data
 @Builder(access = AccessLevel.PRIVATE)
