@@ -5,6 +5,8 @@ import com.example.microgramm.dto.UserDTO;
 import com.example.microgramm.entity.User;
 import com.example.microgramm.repository.UserRepository;
 import lombok.SneakyThrows;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Slice;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -25,6 +27,11 @@ public class UserService {
 
         return Optional.empty();
 
+    }
+
+    public Slice<UserDTO> findUsers(Pageable pageable){
+        var slice = userRepository.findAll(pageable);
+        return slice.map(UserDTO::from);
     }
 
     @SneakyThrows
