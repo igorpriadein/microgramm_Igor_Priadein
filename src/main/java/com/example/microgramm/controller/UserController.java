@@ -1,8 +1,10 @@
 package com.example.microgramm.controller;
 
 
+import com.example.microgramm.dto.CommentDTO;
 import com.example.microgramm.dto.PublicationDTO;
 import com.example.microgramm.dto.UserDTO;
+import com.example.microgramm.service.CommentService;
 import com.example.microgramm.service.PublicationService;
 import com.example.microgramm.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -20,6 +22,7 @@ public class UserController {
 
     private final UserService userService;
     private final PublicationService publicationService;
+    private final CommentService commentService;
 
 
     @GetMapping
@@ -36,5 +39,10 @@ public class UserController {
     @GetMapping("{userId}/publications")
     public Slice<PublicationDTO> findPublicationsByUserId(@PathVariable String userId, Pageable pageable){
         return publicationService.findPublicationsByUserId(userId, pageable);
+    }
+
+    @GetMapping("{userId}/comments")
+    public Slice<CommentDTO> findCommentsByUserId(@PathVariable String userId, Pageable pageable){
+        return commentService.findCommentsByUserId(userId, pageable);
     }
 }
