@@ -4,6 +4,7 @@ package com.example.microgramm.service;
 import com.example.microgramm.dto.UserDTO;
 import com.example.microgramm.entity.User;
 import com.example.microgramm.repository.UserRepository;
+import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Slice;
@@ -12,12 +13,10 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class UserService {
     private final UserRepository userRepository;
 
-    public UserService(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
 
     public Optional<User> login(String email, String password)
 

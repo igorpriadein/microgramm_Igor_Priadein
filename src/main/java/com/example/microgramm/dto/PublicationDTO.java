@@ -1,6 +1,7 @@
 package com.example.microgramm.dto;
 
 
+import com.example.microgramm.entity.Publication;
 import com.example.microgramm.entity.User;
 import lombok.*;
 
@@ -12,7 +13,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
 public class PublicationDTO {
 
-    public static PublicationDTO from(PublicationDTO publication){
+    public static PublicationDTO from(Publication publication){
         return builder()
                 .id(publication.getId())
                 .picture(publication.getPicture())
