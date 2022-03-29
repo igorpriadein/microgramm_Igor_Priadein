@@ -10,7 +10,7 @@ import java.util.Optional;
 @Service
 public class CommentService {
 
-    public Optional<Comment> writeComment(User user, String text, Publication publication)
+    public Optional<Comment> addComment(User user, String text, Publication publication)
 
     {
 

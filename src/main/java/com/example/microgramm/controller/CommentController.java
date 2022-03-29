@@ -5,6 +5,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/publications")
-public class PublicationContoller {
+@RequestMapping("/comments")
+public class CommentController {
 }
