@@ -19,15 +19,6 @@ import java.util.Optional;
 public class CommentService {
     private final CommentRepository commentRepository;
 
-    public Optional<Comment> Comment(User user, String text, Publication publication)
-
-    {
-
-// TODO реализовать логику написания коммента
-
-        return Optional.empty();
-
-    }
 
     public CommentDTO addComment(CommentDTO commentDTO, PublicationDTO publicationDTO){
         var comment = Comment.builder()

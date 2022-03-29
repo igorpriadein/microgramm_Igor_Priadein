@@ -19,17 +19,6 @@ public class PublicationService {
     private final PublicationRepository publicationRepository;
 
 
-
-    public Optional<Comment> addPublication(User user, String picture, String text)
-
-    {
-
-// TODO реализовать логику поста публикации
-
-        return Optional.empty();
-
-    }
-
     public Slice<PublicationDTO> findPublicationsByUserId(String id, Pageable pageable){
         var slice = publicationRepository.findByAuthorId(id, pageable);
         return slice.map(PublicationDTO::from);
