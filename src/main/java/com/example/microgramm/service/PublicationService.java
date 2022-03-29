@@ -1,5 +1,6 @@
 package com.example.microgramm.service;
 
+import com.example.microgramm.dto.CommentDTO;
 import com.example.microgramm.dto.PublicationDTO;
 import com.example.microgramm.entity.Comment;
 import com.example.microgramm.entity.Publication;
@@ -32,5 +33,16 @@ public class PublicationService {
     public Slice<PublicationDTO> findPublicationsByUserId(String id, Pageable pageable){
         var slice = publicationRepository.findByAuthorId(id, pageable);
         return slice.map(PublicationDTO::from);
+    }
+
+    public PublicationDTO addPublication(PublicationDTO publicationDTO) {
+        var publication = Publication.builder()
+                .id(publicationDTO.getId())
+                .author(User.builder().id(publicationDTO.getAuthorId()).build())
+                .picture(publicationDTO.getPicture())
+                .dateAdded(publicationDTO.getDateAdded())
+                .build();
+        publicationRepository.save(publication);
+        return PublicationDTO.from(publication);
     }
 }
